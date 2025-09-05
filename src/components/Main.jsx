@@ -1,9 +1,9 @@
-import Counter from './Counter.jsx'
+import CourseListCard from './course/CourseListCard.jsx'
 
 export default function Main() {
   return (
     <main>
-      <Counter />
+      <CourseListCard />
     </main>
   )
 }
