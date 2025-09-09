@@ -35,7 +35,6 @@ main {
 .courses {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
 }
 
 /* CourseItem */
@@ -43,6 +42,7 @@ main {
     display: flex;
     align-items: center;
     gap: 1rem;
+    cursor: pointer;
 }
 .course__img {
     border-radius: 6px;
@@ -73,10 +73,46 @@ main {
     font-size: 20px; /* Set a font size */
     cursor: pointer; /* Mouse pointer on hover */
 }
-
 .btn > .fa-heart {
     color: red;
 }
 .btn > .fa-link {
     color: #393939;
+}
+.btn__img {
+    width: 20px;
+}
+
+/* Divider */
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #e2e2e2;
+    margin: 16px 0;
+}
+
+/* input */
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    /* margin: 8px 0; */
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    /* margin: 8px 0; */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
 }

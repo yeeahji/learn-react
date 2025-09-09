@@ -1,27 +1,42 @@
 
-export default function CourseItem() {
+function HeartIconBtn({ onClick, isFavorite = false }) {
+  return (
+    <button className="btn" onClick={(e) => onClick(e)}>
+      <img className="btn__img" src={isFavorite ? '/img/heart-fill-icon.svg' : '/img/heart-icon.svg'} />
+    </button>
+  )
+}
 
-  const course = {
-    image: '/img/htmlcss.png',
-    alt: '강의 이미지',
-    title: '입문자를 위한, HTML&CSS 웹 개발 입문',
-    description: '웹 개발에 필요한 기본 지식을 배웁니다.'
+function LinkIconBtn({ link }) {
+  return (
+    <a className="btn" href={link} target="_blank" rel="noreferrer">
+      <img className="btn__img" src="/img/link-icon.svg" alt="" />
+    </a>
+  )
+}
+
+export default function CourseItem({title, description, thumbnail, isFavorite, link }) {
+
+  function handleFavorite(e) {
+    e.stopPropagation(); // 이벤트 전파 방지
+    alert(isFavorite ? '좋아요' : '모르겠어요');
   }
-  const isEmpty = false;
 
-  if (isEmpty) {
-    return (
-      <p>강의가 없습니다.</p>
-    )
+  function handleItemClick() {
+    open(link, '_blank');
   }
 
   return (
-    <article className="course">
-      <img className="course__img" src={course.image} alt={course.alt}/>
+    <article className="course" onClick={handleItemClick}>
+      <img className="course__img" src={thumbnail} alt="강의 이미지"/>
       <div className="course__body">
-      <div className="course__title">{course.title}</div>
-      <div className="course__description">{course.description}</div>
+        <div className="course__title">{title}</div>
+        <div className="course__description">{description}</div>
+      </div>
+      <div className="course__icons">
+        <HeartIconBtn isFavorite={isFavorite} onClick={handleFavorite}/>
+        {link && <LinkIconBtn link={link} />}
       </div>
     </article>
-  )
+  );
 }

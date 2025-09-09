@@ -1,16 +1,21 @@
+import { Fragment } from 'react';
+import Card from '../Card.jsx'
 import CourseItem from './CourseItem.jsx'
 
-export default function CourseListCard() {
+export default function CourseListCard({ title, items }) {
+
+  const lastIndex = items.length - 1;
+
   return (
-    <div className="card">
-      <div className="card__header">강의 목록</div>
-      <div className="card__body">
-        <div className="courses">
-          <CourseItem />
-          <CourseItem />
-          <CourseItem />
-        </div>
+    <Card title={title}>
+      <div className="courses">
+        {items.map((item, index) => (
+          <Fragment key={item.id}>
+            <CourseItem {...item} />
+            {(index !== lastIndex) && <hr className="divider" />}
+          </Fragment>
+        ))}
       </div>
-    </div>
-  )
+    </Card>
+  );
 }
