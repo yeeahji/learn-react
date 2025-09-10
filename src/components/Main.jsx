@@ -4,6 +4,7 @@ import {useState} from "react";
 export default function Main() {
 
   const [total, setTotal] = useState(0);
+  const [flag, setFlag] = useState(false);
 
   const handleToTal = () => {
     setTotal(total + 1);
@@ -12,10 +13,14 @@ export default function Main() {
   return (
     <main>
       <h2>total: {total}</h2>
+      <h2>flag: {flag.toString()}</h2>
+      <button onClick={() => setFlag(!flag)}>toggle flag</button>
       <Counter onTotal={handleToTal}/>
-      <br />
-      <br />
+      <hr />
       <Counter onTotal={handleToTal}/>
+      <hr />
+      <Counter />
     </main>
   )
 }
+

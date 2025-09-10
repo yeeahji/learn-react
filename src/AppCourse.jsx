@@ -1,8 +1,8 @@
-import './App.css';
+import './AppCourse.css';
 import CourseForm from "./components/course/CourseForm.jsx";
 import CourseListCard from "./components/course/CourseListCard.jsx";
 
-function App() {
+function AppCourse() {
 
   const items = [
     {
@@ -31,7 +31,7 @@ function App() {
     }
   ];
 
-  const favoriteItems = items.filter(item => item.isFavorite);
+  /*const favoriteItems = items.filter(item => item.isFavorite);*/
   return (
     <>
       <main style={{ flexDirection: 'column', gap: '1rem' }}>
@@ -43,4 +43,4 @@ function App() {
   );
 }
 
-export default App
+export default AppCourse
